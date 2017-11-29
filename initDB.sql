@@ -59,7 +59,7 @@ idGomme int (50),
 foreign key (idVehicle) references contrader.vehicle(idVehicle),
 foreign key (idGomme) references contrader.gomme (idGomme));
 
-
+SELECT * from contrader.gomme WHERE manufacturer='Super Gomme' AND typevehicle='moto'
 
 
 
