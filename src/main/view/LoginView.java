@@ -38,6 +38,9 @@ public class LoginView implements View {
         if(scelta==2){
             MainDispatcher.getInstance().callAction("User", "doControl", request);
         }
+        if(scelta<1 || scelta>2){
+            MainDispatcher.getInstance().callAction("Login", "doControl", null);
+        }
     }
 
 
