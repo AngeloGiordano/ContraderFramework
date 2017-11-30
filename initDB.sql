@@ -4,7 +4,7 @@ create database if not exists contrader;
 
 
 create table contrader.users (
-idUser int (50) NOT NULL auto_increment,
+idUser int (50) not null auto_increment,
 username varchar(50), 
 password varchar(50),
 firstname varchar(30),
@@ -44,6 +44,8 @@ PRIMARY KEY (idGomme));
 insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle) values (1,'Trelleborg-B50', 'Trelleborg', 321.13,225,45,17,19,'S','Invernale','auto');
 insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle) values (2,'SuperG-876 ', 'Super Gomme', 213.176,190,55,17,15,'H','Estivi','moto');
 insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle) values (3,'Bridgestone R\150WT ', 'Bridgestone', 313.176,200,58,20,17,'L','Estivi','commerciale');
+insert into contrader.gomme(idGomme,model,manufacturer,price,width,height,diameter,weight,speed,season,typevehicle) values(4,'Michelin Alpin 5','Michelin',74.50,185,65,15,88,'T','estive','auto');
+
 create table contrader.vehicle(
 idVehicle int(50) not null auto_increment,
 brand varchar(20),

@@ -104,7 +104,7 @@ public class GommaView implements View {
         request.put("nomeUtente", nomeUtente);
         request.put("password", password);
         MainDispatcher.getInstance().callAction("Home", "doControl", request);
-    }
+}
 
 
 
