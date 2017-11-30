@@ -142,7 +142,7 @@ public class Gomma {
 
     @Override
     public String toString() {
-        return "Modello: " + model + "\n" +
+        return "GOMMA: \n"+"Modello: " + model + "\n" +
                 "Produttore: " +manufacturer + "\n"+
                 "Prezzo: "+price+"\n"+
                 "Larghezza: "+width+"\n"+

@@ -32,7 +32,7 @@ public class HomeView implements View {
         if(role.equals("admin"))
         {
 
-            System.out.println("-------MENU-------");
+            System.out.println("-------MENU ADMIN-------");
             System.out.println("");
             System.out.println("Benvenuto admin "+nomeUtente);
             System.out.println("Azioni disponibili:");
@@ -44,7 +44,8 @@ public class HomeView implements View {
         else
             if (role.equals("local"))
             {
-            System.out.println("Benvenuto utente");
+                System.out.println("-------MENU USER-------");
+                System.out.println("Benvenuto utente");
                 System.out.println("Azioni disponibili:");
                 System.out.println("1) Visualizza gomme disponibili");
                 System.out.println("2) Visualizza brand gomma per tipologia veicolo (auto| moto|commerciale)");
