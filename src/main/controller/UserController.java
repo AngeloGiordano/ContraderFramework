@@ -12,7 +12,7 @@ public class UserController implements Controller {
             case 0:
                 request.put("mode", "insert");
                 break;
-            case 3:
+            case 4:
                 request.put("mode","viewUser");
                 break;
 

@@ -14,10 +14,10 @@ public class GommaController implements Controller {
                 case 1:
                     request.put("mode", "insert");
                     break;
-                case 2:
+                case 3:
                     request.put("mode", "all");
                     break;
-                case 4:
+                case 5:
                     request.put("mode", "allBrandForVehicle");
                     break;
             }
