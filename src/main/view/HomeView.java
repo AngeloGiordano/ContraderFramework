@@ -38,8 +38,9 @@ public class HomeView implements View {
             System.out.println("Azioni disponibili:");
             System.out.println("1) Inserisci gomma");
             System.out.println("2) Visualizza gomme disponibili");
-            System.out.println("3) Visualizza brand gomma per tipologia veicolo (auto|moto|commerciale)");
-            System.out.println("4) Logout");
+            System.out.println("3 Visualizza utenti registrati");
+            System.out.println("4) Visualizza brand gomma per tipologia veicolo (auto|moto|commerciale)");
+            System.out.println("5) Logout");
             this.choice = Integer.parseInt(getInput());}
         else
             if (role.equals("local"))
@@ -56,21 +57,31 @@ public class HomeView implements View {
 
     public void submit() {
         if (role.equals("admin")) {
-            if (choice < 1 || choice > 4) {
+            if (choice < 1 || choice > 5) {
                 Request request = new Request();
                 request.put("role", role);
                 request.put("nomeUtente", nomeUtente);
                 request.put("password", password);
                 MainDispatcher.getInstance().callAction("Home", "doControl", request);
-            } else if (choice == 4)
+            }  if (choice == 5)
                 MainDispatcher.getInstance().callAction("Login", "doControl", null);
-            else {
+            if (choice==3) {
+                Request request = new Request();
+                request.put("choice", choice);
+                request.put("role", role);
+                request.put("nomeUtente", nomeUtente);
+                request.put("password", password);
+                MainDispatcher.getInstance().callAction("User","doControl",request);
+
+            }
+            else  {
                 Request request = new Request();
                 request.put("choice", choice);
                 request.put("role", role);
                 request.put("nomeUtente", nomeUtente);
                 request.put("password", password);
                 MainDispatcher.getInstance().callAction("Gomma", "doControl", request);
+
             }
         }  if (role.equals("local")) {
             if (choice < 1 || choice > 3) {

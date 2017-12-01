@@ -31,11 +31,14 @@ public class LoginView implements View {
 
     public void submit() {
         Request request = new Request();
+        request.put("scelta",scelta);
         if (scelta==1){
         request.put("nomeUtente", nomeUtente);
         request.put("password", password);
         MainDispatcher.getInstance().callAction("Home", "doControl", request);}
         if(scelta==2){
+            int choice= 0;
+            request.put("choice",choice);
             MainDispatcher.getInstance().callAction("User", "doControl", request);
         }
         if(scelta<1 || scelta>2){

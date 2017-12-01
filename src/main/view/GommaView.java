@@ -51,7 +51,7 @@ public class GommaView implements View {
                 System.out.println("Larghezza:");
                 double width=Double.parseDouble(getInput());
                 System.out.println("Altezza:");
-                double height=Double.parseDouble(getInput());System.out.println("Altezza:");
+                double height=Double.parseDouble(getInput());
                 System.out.println("Diametro:");
                 double diameter=Double.parseDouble(getInput());
                 System.out.println("Carico:");
@@ -62,7 +62,9 @@ public class GommaView implements View {
                 String season=getInput();
                 System.out.println("Tipo Veicolo:");
                 String typevehicle=getInput();
-                gommaService.insertGomma(new Gomma(null,model,manufacturer,price,width,height,diameter,weight,speed,season,typevehicle));
+                System.out.println("Quantità: ");
+                int quantity=Integer.parseInt(scanner.nextLine());
+                gommaService.insertGomma(new Gomma(null,model,manufacturer,price,width,height,diameter,weight,speed,season,typevehicle,quantity));
                 break;
             case "allBrandForVehicle":
                 System.out.println("Scegli la tipologia (auto|moto|commerciale)");

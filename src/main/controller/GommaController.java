@@ -17,7 +17,7 @@ public class GommaController implements Controller {
                 case 2:
                     request.put("mode", "all");
                     break;
-                case 3:
+                case 4:
                     request.put("mode", "allBrandForVehicle");
                     break;
             }

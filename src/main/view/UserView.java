@@ -6,6 +6,7 @@ import main.service.UserService;
 
 import java.util.Scanner;
 import main.model.User;
+import java.util.List;
 
 public class UserView implements View{
     private String mode;
@@ -24,6 +25,9 @@ public class UserView implements View{
     @Override
     public void showResults(Request request) {
         this.mode  = (String) request.get("mode");
+        role=(String)request.get("role");
+        username= (String)request.get("nomeUtente");
+        password= (String)request.get("password");
 
     }
 
@@ -62,6 +66,14 @@ public class UserView implements View{
                 String telephone=getInput();
                 role="local";
                 userService.insertUser(new User(null,username,password,firstname,lastname,dateofbirth,cf,businessname,vat,municipality,cap,city,address,telephone,""));
+                break;
+
+            case "viewUser":
+                List<User> users=userService.getAlluser();
+                System.out.println("-----Lista utenti registrati-----");
+                System.out.println();
+                users.forEach(user->System.out.println(users));
+
                 break;
         }
     }

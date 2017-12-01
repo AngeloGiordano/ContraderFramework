@@ -3,6 +3,8 @@ import main.model.User;
 import main.ConnectionSingleton;
 import main.controller.GestoreEccezioni;
 import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class UserDAO {
@@ -39,4 +41,39 @@ public UserDAO(){
 
 
         }
-}
+
+        public List<User> getAlluser(){
+            List<User> users= new ArrayList<>();
+            Connection connection = ConnectionSingleton.getInstance();
+            String var="local";
+            String query_user="SELECT * from users WHERE role=\""+var+"\"";
+            try{
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query_user);
+                while (resultSet.next()) {
+                    int idUser = resultSet.getInt("idUser");
+                    String username = resultSet.getString("username");
+                    String password = "*******";
+                    String firstname = resultSet.getString("firstname");
+                    String lastname = resultSet.getString("lastname");
+                    String dateofbirth = resultSet.getString("dateofbirth");
+                    String cf = resultSet.getString("cf");
+                    String businessname = resultSet.getString("businessname");
+                    String vat = "*******";
+                    String municipality = resultSet.getString("municipality");
+                    String cap = resultSet.getString("cap");
+                    String city = resultSet.getString("city");
+                    String address = resultSet.getString("address");
+                    String telephone = resultSet.getString("telephone");
+                    String role = resultSet.getString("role");
+                    users.add(new User(idUser, username, password, firstname, lastname, dateofbirth, cf, businessname, vat, municipality, cap, city, address, telephone, role));
+                }
+
+
+
+
+                } catch (SQLException e) {
+                e.printStackTrace();
+            } return users;
+        }
+        }

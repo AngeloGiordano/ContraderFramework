@@ -27,6 +27,7 @@ insert into contrader.users (idUser,username, password,firstname,lastname,dateof
 																																						(2,'ciccio', 'bello','Francesco','Randi','05/11/1986','frcrnd','student','FR59687','Ariano Irpino','83031','Ariano Irpino','Via uiip','5678','local'),
                                                                                                                                                         (3,'angel', 'uiip','Angelo','Giordano','05/11/1987','grdngl','developer','GR59687','Nocera Superiore','83015','Nocera Superiore','Via Russo','2801','local'),
                                                                                                                                                         (4,'admin','admin','Admin','Admin','00/01/2000','asdf','admin','admin123','PC','010101','0000','010101','RAM','admin');
+ 
 create table contrader.gomme (
 idGomme int (50) not null auto_increment,
 model varchar (50), 
@@ -39,12 +40,13 @@ weight float,
 speed varchar(3),
 season varchar(10),
 typevehicle varchar(30),
+quantity int (30),
 PRIMARY KEY (idGomme));
 
-insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle) values (1,'Trelleborg-B50', 'Trelleborg', 321.13,225,45,17,19,'S','Invernale','auto');
-insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle) values (2,'SuperG-876 ', 'Super Gomme', 213.176,190,55,17,15,'H','Estivi','moto');
-insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle) values (3,'Bridgestone R\150WT ', 'Bridgestone', 313.176,200,58,20,17,'L','Estivi','commerciale');
-insert into contrader.gomme(idGomme,model,manufacturer,price,width,height,diameter,weight,speed,season,typevehicle) values(4,'Michelin Alpin 5','Michelin',74.50,185,65,15,88,'T','estive','auto');
+insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle,quantity) values (1,'Trelleborg-B50', 'Trelleborg', 321.13,225,45,17,19,'S','Invernale','auto',3);
+insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle,quantity) values (2,'SuperG-876 ', 'Super Gomme', 213.176,190,55,17,15,'H','Estivi','moto',5);
+insert into contrader.gomme (idGomme,model, manufacturer, price,width,height,diameter,weight,speed,season,typevehicle,quantity) values (3,'Bridgestone R\150WT ', 'Bridgestone', 313.176,200,58,20,17,'L','Estivi','commerciale',6);
+insert into contrader.gomme(idGomme,model,manufacturer,price,width,height,diameter,weight,speed,season,typevehicle,quantity) values(4,'Michelin Alpin 5','Michelin',74.50,185,65,15,88,'T','estive','auto',10);
 
 create table contrader.vehicle(
 idVehicle int(50) not null auto_increment,
