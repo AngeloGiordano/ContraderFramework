@@ -37,10 +37,12 @@ public class HomeView implements View {
             System.out.println("Benvenuto admin "+nomeUtente);
             System.out.println("Azioni disponibili:");
             System.out.println("1) Inserisci gomma");
-            System.out.println("2) Visualizza gomme disponibili");
-            System.out.println("3) Visualizza utenti registrati");
-            System.out.println("4) Visualizza brand gomma per tipologia veicolo (auto|moto|commerciale)");
-            System.out.println("5) Logout");
+            System.out.println("2) Inserisci veicolo");
+            System.out.println("3) Visualizza gomme disponibili");
+            System.out.println("4) Visualizza utenti registrati");
+            System.out.println("5) Visualizza brand gomma per tipologia veicolo (auto|moto|commerciale)");
+            System.out.println("6) Visualizza Veicoli");
+            System.out.println("7) Logout");
             this.choice = Integer.parseInt(getInput());}
         else
             if (role.equals("local"))
@@ -58,15 +60,15 @@ public class HomeView implements View {
 
     public void submit() {
         if (role.equals("admin")) {
-            if (choice < 1 || choice > 5) {
+            if (choice < 1 || choice > 7) {
                 Request request = new Request();
                 request.put("role", role);
                 request.put("nomeUtente", nomeUtente);
                 request.put("password", password);
                 MainDispatcher.getInstance().callAction("Home", "doControl", request);
-            }  if (choice == 5)
+            }  if (choice == 7)
                 MainDispatcher.getInstance().callAction("Login", "doControl", null);
-            if (choice==3) {
+            if (choice==4) {
                 Request request = new Request();
                 request.put("choice", choice);
                 request.put("role", role);
@@ -74,6 +76,14 @@ public class HomeView implements View {
                 request.put("password", password);
                 MainDispatcher.getInstance().callAction("User","doControl",request);
 
+            }
+            if(choice==2 || choice==6){
+                Request request = new Request();
+                request.put("choice", choice);
+                request.put("role", role);
+                request.put("nomeUtente", nomeUtente);
+                request.put("password", password);
+                MainDispatcher.getInstance().callAction("Vehicle","doControl",request);
             }
             else  {
                 Request request = new Request();

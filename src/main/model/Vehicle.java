@@ -2,14 +2,14 @@ package main.model;
 
 public class Vehicle {
 
-    private int idVehicle ;
+    private Integer idVehicle ;
     private String brand ;
     private String model ;
     private String power ;
     private String version;
     private String capacity;
 
-    public Vehicle(int idVehicle, String brand, String model, String power, String version, String capacity) {
+    public Vehicle(Integer idVehicle, String brand, String model, String power, String version, String capacity) {
         this.idVehicle = idVehicle;
         this.brand = brand;
         this.model = model;
@@ -22,7 +22,7 @@ public class Vehicle {
         return idVehicle;
     }
 
-    public void setIdVehicle(int idVehicle) {
+    public void setIdVehicle(Integer idVehicle) {
         this.idVehicle = idVehicle;
     }
 
