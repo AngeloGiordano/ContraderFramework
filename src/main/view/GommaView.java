@@ -89,6 +89,47 @@ public class GommaView implements View {
                 }
 
                 break;
+            case "allGommaForVehicleAndSize":
+                System.out.println("Scegli la tipologia (auto|moto|commerciale)");
+                type=getInput();
+                if (type.equals("auto")){
+                    System.out.println("Digita larghezza: ");
+                    Scanner in=new Scanner(System.in);
+                    width=in.nextDouble();
+                    System.out.println("Digita altezza: ");
+                    height=in.nextDouble();
+                    System.out.println("Digita Diametro: ");
+                    diameter=in.nextDouble();
+                    System.out.println("Digita  stagione: ");
+                    season=getInput();
+                    List<Gomma> gommaAuto=gommaService.allGommaForAutoAndSize(type,width,height,diameter,season);
+                    System.out.println("----- Gomme disponibili -----");
+                    System.out.println();
+                    gommaAuto.forEach(gomma -> System.out.println(gomma));
+
+                    //Inserire chiamata e stampa
+                }
+                if(type.equals("moto")||type.equals("commerciale")){
+                    System.out.println("Digita larghezza: ");
+                    Scanner in=new Scanner(System.in);
+                    width=in.nextDouble();
+                    System.out.println("Digita altezza: ");
+                    height=in.nextDouble();
+                    System.out.println("Digita Diametro: ");
+                    diameter=in.nextDouble();
+                    System.out.println("Digita Carico: ");
+                    weight=in.nextDouble();
+                    System.out.println("Digita Velocità: ");
+                    speed=getInput();
+                    List<Gomma> gommaMoto=gommaService.allGommaForMotoAndSize(type,width,height,diameter,weight,speed);
+                    System.out.println("----- Gomme disponibili -----");
+                    System.out.println();
+                    gommaMoto.forEach(gomma -> System.out.println(gomma));
+                    //inserire chiamata e stampa
+
+                }
+
+                break;
 
         }
     }
