@@ -29,6 +29,8 @@ public class GommaService {
     public List<Gomma> allGommaForMotoAndSize(String type, double width, double height, double diameter, double weight, String speed){
         return this.gommaDAO.allGommaForMotoAndSize(type,width,height,diameter,weight,speed);
     }
+
+    public List<Gomma> getGommeFromIdGomme (int idGomme){return this.gommaDAO.getGommeFromIdGomme(idGomme);}
 }
 
 

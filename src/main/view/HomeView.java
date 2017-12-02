@@ -53,7 +53,8 @@ public class HomeView implements View {
                 System.out.println("1) Visualizza gomme disponibili");
                 System.out.println("2) Visualizza brand gomma per tipologia veicolo e brand(auto|moto|commerciale)");
                 System.out.println("3) Visualizza gomma per tipologia e dimensioni (auto|moto|commerciale)");
-                System.out.println("4) Logout");
+                System.out.println("4) Visualizza gomma per modello veicolo");
+                System.out.println("5) Logout");
                 this.choice = Integer.parseInt(getInput());
            }
     }
@@ -95,15 +96,25 @@ public class HomeView implements View {
 
             }
         }  if (role.equals("local")) {
-            if (choice < 1 || choice > 4) {
+            if (choice < 1 || choice > 5) {
                 Request request = new Request();
                 request.put("role", role);
                 request.put("nomeUtente", nomeUtente);
                 request.put("password", password);
                 MainDispatcher.getInstance().callAction("Home", "doControl", request);
 
-            } else if (choice == 4)
+            }  if (choice == 5)
+            {
                 MainDispatcher.getInstance().callAction("Login", "doControl", null);
+            }
+            if(choice==4){
+                Request request = new Request();
+                request.put("choice", choice);
+                request.put("role", role);
+                request.put("nomeUtente", nomeUtente);
+                request.put("password", password);
+                MainDispatcher.getInstance().callAction("Vehicle","doControl",request);
+            }
             else {
                 Request request = new Request();
                 request.put("choice", choice);

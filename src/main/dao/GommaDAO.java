@@ -172,4 +172,30 @@ public class GommaDAO {
         }
         return gommeMoto;
     }
+    public List<Gomma> getGommeFromIdGomme (int idGomme){
+        List<Gomma> gommesVehicle= new ArrayList<>();
+        Connection connection = ConnectionSingleton.getInstance();
+        String queryID="SELECT * FROM gomme WHERE idGomme=\""+idGomme+"\"";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(queryID);
+            while (resultSet.next()) {
+                int idGomme2 = resultSet.getInt("idGomme");
+                String model = resultSet.getString("model");
+                String manufacturer = resultSet.getString("manufacturer");
+                double price = resultSet.getDouble("price");
+                double width2 = resultSet.getDouble("width");
+                double height2 = resultSet.getDouble("height");
+                double diameter2 = resultSet.getDouble("diameter");
+                double weight2 = resultSet.getDouble("weight");
+                String speed2 = resultSet.getString("speed");
+                String season = resultSet.getString("season");
+                String typevehicle = resultSet.getString("typevehicle");
+                int quantity = resultSet.getInt("quantity");
+                gommesVehicle.add(new Gomma(idGomme2, model, manufacturer, price, width2, height2, diameter2, weight2, speed2, season,typevehicle, quantity));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        } return gommesVehicle;
+    }
 }
