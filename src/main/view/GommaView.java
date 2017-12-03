@@ -107,7 +107,7 @@ public class GommaView implements View {
                     System.out.println();
                     gommaAuto.forEach(gomma -> System.out.println(gomma));
 
-                    //Inserire chiamata e stampa
+
                 }
                 if(type.equals("moto")||type.equals("commerciale")){
                     System.out.println("Digita larghezza: ");
@@ -125,7 +125,7 @@ public class GommaView implements View {
                     System.out.println("----- Gomme disponibili -----");
                     System.out.println();
                     gommaMoto.forEach(gomma -> System.out.println(gomma));
-                    //inserire chiamata e stampa
+
 
                 }
 

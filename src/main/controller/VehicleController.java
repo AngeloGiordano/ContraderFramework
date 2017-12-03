@@ -25,11 +25,11 @@ public class VehicleController implements Controller{
         if(role.equals("local")){
             switch (choice){
                 case 4:
-                    request.put("mode","getIdVehicleFromModel");//inserire comando
+                    request.put("mode","getIdVehicleFromModel");
                     break;
             }
             MainDispatcher.getInstance().callView("Vehicle",request);
-            //Inserire maindispatcher view vehicle
+
         }
     }
 
