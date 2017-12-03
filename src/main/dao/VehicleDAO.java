@@ -71,8 +71,8 @@ public class VehicleDAO {
         return id;
     }
 
-    public Vector getIdGommeFromIdVehicle(int idVehicle){
-        Vector idGList= new Vector<>();
+    public Vector  getIdGommeFromIdVehicle(int idVehicle){
+        Vector <Integer> idGList= new Vector<>();
         Connection connection = ConnectionSingleton.getInstance();
         String queryIdGfromIdV="SELECT idGomme FROM compatibility WHERE idVehicle=\""+idVehicle+"\"";
         try {

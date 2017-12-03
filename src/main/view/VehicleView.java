@@ -19,7 +19,7 @@ public class VehicleView implements View {
     private String role;
     private String nomeUtente;
     private String password;
-    private GommaService gommaService;
+    private GommaService gommaService=new GommaService();
 
 
     public VehicleView(){
@@ -59,34 +59,33 @@ public class VehicleView implements View {
                 vehicles.forEach(vehicle -> System.out.println(vehicle));
                 break;
             case "getIdVehicleFromModel":
-                System.out.println("----Trova la tua auto----");
-                System.out.print("Dimmi la marca: ");
-                String brand1=getInput();
-                System.out.print("Dimmi il modello: ");
-                String model1=getInput();
-                System.out.print("Tipo Alimentazione  : ");
-                String power1=getInput();
-                System.out.print("Dimmi la versione: ");
-                String version1=getInput();
-                System.out.print("Infine, dimmi la cilindrata: ");
-                String capacity1=getInput();
-                int id=vehicleService.getIdVehiclefromAuto(brand1,model1,power1,version1,capacity1);
-                Vector idGommes=vehicleService.getIdGommeFromIdVehicle(id);
-                int dim=idGommes.size();
-                int [] indici=new int [dim];
-                System.out.println("Il mio array"); //da rimuovere
+                    System.out.println("----Trova la tua auto----");
+                    System.out.print("Dimmi la marca: ");
+                    String brand1=getInput();
+                    System.out.print("Dimmi il modello: ");
+                    String model1=getInput();
+                    System.out.print("Tipo Alimentazione  : ");
+                    String power1=getInput();
+                    System.out.print("Dimmi la versione: ");
+                    String version1=getInput();
+                    System.out.print("Infine, dimmi la cilindrata: ");
+                    String capacity1=getInput();
+                    int id=vehicleService.getIdVehiclefromAuto(brand1,model1,power1,version1,capacity1);
+                    if(id==0){
+                        System.out.print("Dispiace nessun veicolo trovato\n");
+                     }
 
-                for (int i=0;i<idGommes.size();i++){
-                    indici[i]=(int) idGommes.elementAt(i);}
-                    for(int i=0;i<indici.length;i++){
-                    System.out.print(indici[i]);
-                    System.out.print("\n");
-                }
-                System.out.println("-----Gomme disponibili-----");
-
-               List<Gomma> gommacompatibility=gommaService.getGommeFromIdGomme(1);
-                   gommacompatibility.forEach(gomma -> System.out.println(gomma));
-                   break;
+                    Vector <Integer> idGommes=vehicleService.getIdGommeFromIdVehicle(id);
+                    if(!idGommes.isEmpty()) {
+                        System.out.println("-----Gomme disponibili-----");
+                        List<Gomma> gommacompatibility = new ArrayList<>();
+                        for (int i = 0; i < idGommes.size(); i++) {
+                            gommacompatibility = gommaService.getGommeFromIdGomme(idGommes.elementAt(i));
+                            gommacompatibility.forEach(gomma -> System.out.println(gomma));
+                        }
+                    }else
+                        System.out.println("Dispiace nessuna gomma disponibile per il veicolo cercato\n");
+                    break;
 
 
 
